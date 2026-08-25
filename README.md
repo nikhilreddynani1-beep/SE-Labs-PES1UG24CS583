@@ -3,7 +3,7 @@
 **Problem Statement #36 — Restaurant Table Booking & Pre-Ordering App**
 PES University, Dept. of CSE | Software Engineering Lab
 
-Name: _______________  SRN: _______________  Section: ______
+Name:NIKHIL.P  SRN: PES1UG24CS583  Section: J
 
 ---
 
