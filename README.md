@@ -5,12 +5,9 @@ Coursework repository for the Software Engineering lab series.
 
 | | |
 |---|---|
-| **Name** | _______________________ |
-| **SRN** | _______________________ |
-| **Section / Batch** | _______________________ |
-| **Semester** | _______________________ |
-| **Faculty** | _______________________ |
-
+| **Name** |NIKHIL.P |
+| **SRN** |PES1UG24CS583 |
+| **Section / Batch** |J |
 ---
 
 ## 1. The system being modelled
