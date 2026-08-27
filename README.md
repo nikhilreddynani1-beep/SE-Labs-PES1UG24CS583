@@ -150,10 +150,10 @@ Backlog total **99 story points** across 20 stories, estimated on the Fibonacci 
 
 | Sprint | Goal | Committed | Completed |
 |---|---|---|---|
-| Sprint 1 | Diner can find, hold and browse — double booking made impossible | 34 | 29 (5 carried over) |
-| Sprint 2 | Diner can complete a paid pre-order; system knows when cooking must start | 37 | 37 |
+| Sprint 1 (1 week) | Diner can find, hold and browse — double booking made impossible | 34 | 29 (Story 1.2 carried over) |
+| Sprint 2 (2 weeks) | Diner can complete a paid pre-order; system knows when cooking must start | 32 | 32 |
 
-Working velocity ≈ **33 points per one-week sprint**; 33 points remain, i.e. roughly one more sprint.
+Working velocity ≈ **30 points per sprint**; 38 points remain, i.e. roughly one and a half more sprints.
 
 ### Submission checklist
 

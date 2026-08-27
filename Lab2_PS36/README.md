@@ -24,17 +24,18 @@ prioritised, estimated with Fibonacci story points, and run through two simulate
 | Epic 4 | Payments & Confirmation | FR-004, NFR-002 | 4 | 18 |
 | Epic 5 | Floor Operations & Reservation Lifecycle | FR-005, NFR-001 | 4 | 21 |
 
-Total backlog: **99 story points**. Sprint 1 = 34 committed / 29 completed. Sprint 2 = 37 committed / 37 completed. Velocity ≈ 33 points per week.
+Total backlog: **99 story points**. Sprint 1 (1 week) = 34 committed / 29 completed, Story 1.2 carried over. Sprint 2 (2 weeks) = 32 committed / 32 completed. Working velocity ≈ 30 points; 38 points remain.
 
 ## Running it in Jira
 
 1. Create a **Company-managed Scrum** project (Projects → + → Software development → Scrum → Company-managed). Name it `Restaurant Table Booking`, key `RTB`.
-2. **Import the backlog** (fastest route): Settings ⚙ → System → External System Import → CSV → upload `Lab2_Jira_Import.csv` → map to the RTB project. Map the columns as: Issue Type, Summary, Description, Priority, Story Points, Epic Name, Epic Link, Sprint, Labels.
-   *No admin access?* Create the 5 epics manually first (Create → work type **Epic**), then use **Create work item** under each epic and paste each story's summary and description from `Lab2_Backlog_Epics_Stories.pdf`.
+2. **Import the backlog** (fastest route, needs Jira admin): Settings ⚙ → System → External system import → CSV → upload `Lab2_Jira_Import.csv` → select the RTB project. In the field-mapping screen map: `Issue Id` → Issue Id, `Issue Type` → Issue Type, `Summary` → Summary, `Description` → Description, `Priority` → Priority, `Story Points` → Story Points, `Parent` → Parent, `Labels` → Labels. Leave `Sprint` unmapped — dragging stories into sprints by hand is part of the lab. Mapping `Issue Id` is mandatory: without it Jira refuses to create the epic→story parent links. Epics are listed before stories in the file, which the importer requires.
+   *No admin access?* Use Filters → Search work items → ••• → Import work items from CSV. That route cannot create parent-child links, so the stories arrive unparented — create the 5 epics manually first, then drag each story onto its epic in the backlog.
+
 3. **Story points**: if the field is missing on the create screen, open a story → *More fields* → Story Points. Values are in the backlog table.
 4. **Sprint 1**: drag the six Sprint 1 stories into the sprint row, click *Start sprint*, duration **1 week**, and paste the Sprint 1 goal from the plan document.
-5. **Simulate the work**: move stories To Do → In Progress → Done in priority order. Leave Story 1.2 unfinished so the burndown shows the 5-point carry-over.
-6. **Complete sprint**, then plan **Sprint 2** with its stories plus the carried-over 1.2, and run it to completion.
+5. **Simulate the work**: move stories To Do → In Progress → Done in priority order. Story 1.2 was left unfinished, which is why the Sprint 1 burndown stops at 5 points.
+6. **Complete sprint**, then plan **Sprint 2** with its six stories and run it to completion.
 7. **Burndown**: Reports → Burndown Chart, with the estimation statistic set to *Story Points*.
 
 ## Screenshot checklist (what gets graded)
