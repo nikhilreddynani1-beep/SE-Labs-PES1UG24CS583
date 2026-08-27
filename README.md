@@ -5,9 +5,12 @@ Coursework repository for the Software Engineering lab series.
 
 | | |
 |---|---|
-| **Name** |NIKHIL.P |
-| **SRN** |PES1UG24CS583 |
-| **Section / Batch** |J |
+| **Name** | Nikhil P |
+| **SRN** | PES1UG24CS583 |
+| **Section / Batch** | _______________________ |
+| **Semester** | _______________________ |
+| **Faculty** | _______________________ |
+
 ---
 
 ## 1. The system being modelled
@@ -36,14 +39,20 @@ reference for all later design, testing and documentation artefacts.
 ```
 .
 ├── README.md                  ← you are here (repo overview)
-├── Lab-1/                     ← Requirements Engineering & UML Use-Case Modelling
+├── Lab1_PS36/                     ← Requirements Engineering & UML Use-Case Modelling
 │   ├── Lab1_Requirements_Table.docx / .pdf
 │   ├── Lab1_UseCase_Diagram.pdf
 │   ├── Lab1_UseCase_Diagram.drawio
 │   ├── Lab1_UseCase_Flow.docx / .pdf
 │   └── README.md              ← lab-specific notes
-├── Lab-2/                     ← (to be added)
-├── Lab-3/                     ← (to be added)
+├── Lab2_PS36/                     ← Agile Backlog Creation & Sprint Simulation in Jira
+│   ├── Lab2_Backlog_Epics_Stories.docx / .pdf
+│   ├── Lab2_Sprint_Plan_and_Reflection.docx / .pdf
+│   ├── Lab2_Burndown_Charts.pdf / .png
+│   ├── Lab2_Jira_Import.csv
+│   ├── screenshots/           ← Jira screenshots
+│   └── README.md
+├── Lab3_PS36/                 ← (to be added)
 └── ...
 ```
 
@@ -110,25 +119,76 @@ Every requirement traces to at least one use case, and no use case exists withou
 
 ---
 
-## 4. Tools used
+## 4. Lab 2 — Agile Backlog Creation & Sprint Simulation in Jira
+
+**Objective:** turn the Lab 1 functional requirements into Agile backlog items, estimate them, run two
+simulated sprints and analyse progress with a burndown chart.
+
+### Deliverables
+
+| File | What it contains |
+|---|---|
+| `Lab2_Backlog_Epics_Stories.docx` / `.pdf` | 5 Epics and 20 User Stories ("As a / I want / So that") with priority, Fibonacci story points and traceability back to FR/NFR and use cases |
+| `Lab2_Sprint_Plan_and_Reflection.docx` / `.pdf` | Sprint 1 & 2 goals and contents, velocity table, Planning Poker record, burndown analysis, four reflection answers |
+| `Lab2_Burndown_Charts.pdf` / `.png` | Guideline vs remaining-values burndown for both sprints |
+| `Lab2_Jira_Import.csv` | Bulk-import file that creates the whole backlog in Jira |
+| `screenshots/` | Jira evidence: backlog with epics, story points, active sprint board, burndown |
+
+### Epics and how they map back to Lab 1
+
+| Epic | Theme | Traces to | Stories | Points |
+|---|---|---|---|---|
+| Epic 1 | Table Discovery & Reservation | FR-001 | 4 | 26 |
+| Epic 2 | Pre-Ordering & Menu Experience | FR-002 | 4 | 16 |
+| Epic 3 | Kitchen Preparation Orchestration | FR-003 | 4 | 18 |
+| Epic 4 | Payments & Confirmation | FR-004, NFR-002 | 4 | 18 |
+| Epic 5 | Floor Operations & Reservation Lifecycle | FR-005, NFR-001 | 4 | 21 |
+
+Backlog total **99 story points** across 20 stories, estimated on the Fibonacci scale (1, 2, 3, 5, 8).
+
+### Sprint outcome
+
+| Sprint | Goal | Committed | Completed |
+|---|---|---|---|
+| Sprint 1 | Diner can find, hold and browse — double booking made impossible | 34 | 29 (5 carried over) |
+| Sprint 2 | Diner can complete a paid pre-order; system knows when cooking must start | 37 | 37 |
+
+Working velocity ≈ **33 points per one-week sprint**; 33 points remain, i.e. roughly one more sprint.
+
+### Submission checklist
+
+- [x] Epics created from Lab 1 functional requirements
+- [x] User Stories in "As a / I want / So that" format under their epics
+- [x] Backlog prioritised (Highest / High / Medium / Low)
+- [x] Story points assigned on the Fibonacci scale, with a Planning Poker record
+- [x] Two sprints planned and simulated To Do → In Progress → Done
+- [x] Burndown chart produced and analysed
+- [x] Reflection questions answered
+- [ ] Jira screenshots captured into `Lab2_PS36/screenshots/`
+- [ ] Jira workspace demonstrated to the instructor
+
+---
+
+## 5. Tools used
 
 | Purpose | Tool |
 |---|---|
 | UML use-case diagram | draw.io (diagrams.net) |
+| Agile backlog, sprints, burndown | Jira (Company-managed Scrum) |
 | Requirements table & flow document | Microsoft Word / LibreOffice Writer |
 | Export & submission | PDF export, Git + GitHub |
 
 ---
 
-## 5. Working with this repository
+## 6. Working with this repository
 
 ```bash
 git clone <your-repo-url>
 cd <repo>
 
 # after adding or updating a lab
-git add Lab-1
-git commit -m "Lab 1: requirements table, use-case diagram and UC-01 flow"
+git add Lab2_PS36
+git commit -m "Lab 2: agile backlog, two sprints and burndown analysis"
 git push origin main
 ```
 
@@ -137,10 +197,10 @@ revised in later labs instead of redrawn.
 
 ---
 
-## 6. Roadmap
+## 7. Roadmap
 
 | Lab | Topic | Status |
 |---|---|---|
 | Lab 1 | Requirements Engineering & UML Use-Case Modelling | ✅ Complete |
-| Lab 2 | — | ⬜ Pending |
+| Lab 2 | Agile Backlog Creation & Sprint Simulation in Jira | ✅ Complete |
 | Lab 3 | — | ⬜ Pending |
