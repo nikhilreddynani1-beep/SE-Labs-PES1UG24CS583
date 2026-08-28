@@ -7,10 +7,7 @@ Coursework repository for the Software Engineering lab series.
 |---|---|
 | **Name** | Nikhil P |
 | **SRN** | PES1UG24CS583 |
-| **Section / Batch** | _______________________ |
-| **Semester** | _______________________ |
-| **Faculty** | _______________________ |
-
+| **Section / Batch** | J |
 ---
 
 ## 1. The system being modelled
