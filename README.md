@@ -122,49 +122,51 @@ Every requirement traces to at least one use case, and no use case exists withou
 ## 4. Lab 2 — Agile Backlog Creation & Sprint Simulation in Jira
 
 **Objective:** turn the Lab 1 functional requirements into Agile backlog items, estimate them, run two
-simulated sprints and analyse progress with a burndown chart.
+simulated sprints and analyse progress with a burndown chart. Scoped as instructed to a single epic.
 
 ### Deliverables
 
 | File | What it contains |
 |---|---|
-| `Lab2_Backlog_Epics_Stories.docx` / `.pdf` | 5 Epics and 20 User Stories ("As a / I want / So that") with priority, Fibonacci story points and traceability back to FR/NFR and use cases |
+| `Lab2_Backlog_Epics_Stories.docx` / `.pdf` | One Epic and six User Stories ("As a / I want / So that") with priority, Fibonacci story points and traceability back to FR/NFR and use cases |
 | `Lab2_Sprint_Plan_and_Reflection.docx` / `.pdf` | Sprint 1 & 2 goals and contents, velocity table, Planning Poker record, burndown analysis, four reflection answers |
 | `Lab2_Burndown_Charts.pdf` / `.png` | Guideline vs remaining-values burndown for both sprints |
-| `Lab2_Jira_Import.csv` | Bulk-import file that creates the whole backlog in Jira |
-| `screenshots/` | Jira evidence: backlog with epics, story points, active sprint board, burndown |
+| `Lab2_Jira_Import.csv` | Bulk-import file that creates the epic and its stories in Jira |
+| `screenshots/` | Jira evidence: backlog with the epic, story points, active sprint board, burndown |
 
-### Epics and how they map back to Lab 1
+### The epic and how it maps back to Lab 1
 
-| Epic | Theme | Traces to | Stories | Points |
-|---|---|---|---|---|
-| Epic 1 | Table Discovery & Reservation | FR-001 | 4 | 26 |
-| Epic 2 | Pre-Ordering & Menu Experience | FR-002 | 4 | 16 |
-| Epic 3 | Kitchen Preparation Orchestration | FR-003 | 4 | 18 |
-| Epic 4 | Payments & Confirmation | FR-004, NFR-002 | 4 | 18 |
-| Epic 5 | Floor Operations & Reservation Lifecycle | FR-005, NFR-001 | 4 | 21 |
+**Epic 1 — Table Discovery & Reservation**, 34 story points across 6 stories, tracing to FR-001 and
+FR-005 and covering UC-01, UC-02 and UC-08. Estimated on the Fibonacci scale (3, 5, 8).
 
-Backlog total **99 story points** across 20 stories, estimated on the Fibonacci scale (1, 2, 3, 5, 8).
+| Story | Priority | SP | Sprint |
+|---|---|---|---|
+| 1.1 View live floor plan | Highest | 8 | Sprint 1 |
+| 1.2 Filter tables by slot and party size | High | 5 | Sprint 1 |
+| 1.3 Select and hold a table | Highest | 5 | Sprint 1 |
+| 1.4 Reject overlapping reservations | Highest | 8 | Sprint 2 |
+| 1.5 Cancel a reservation | Medium | 3 | Sprint 2 |
+| 1.6 Auto-release a no-show table | Medium | 5 | Backlog |
 
 ### Sprint outcome
 
 | Sprint | Goal | Committed | Completed |
 |---|---|---|---|
-| Sprint 1 (1 week) | Diner can find, hold and browse — double booking made impossible | 34 | 29 (Story 1.2 carried over) |
-| Sprint 2 (2 weeks) | Diner can complete a paid pre-order; system knows when cooking must start | 32 | 32 |
+| Sprint 1 (1 week) | Diner can see the live floor plan and hold a table | 18 | 13 (Story 1.2 not completed) |
+| Sprint 2 (1 week) | Double booking impossible; diner can release a table | 11 | 11 |
 
-Working velocity ≈ **30 points per sprint**; 38 points remain, i.e. roughly one and a half more sprints.
+Working velocity ≈ **12 points per one-week sprint**; 10 points remain.
 
 ### Submission checklist
 
-- [x] Epics created from Lab 1 functional requirements
-- [x] User Stories in "As a / I want / So that" format under their epics
-- [x] Backlog prioritised (Highest / High / Medium / Low)
+- [x] Epic created from the Lab 1 functional requirements
+- [x] User Stories in "As a / I want / So that" format under the epic
+- [x] Backlog prioritised (Highest / High / Medium)
 - [x] Story points assigned on the Fibonacci scale, with a Planning Poker record
 - [x] Two sprints planned and simulated To Do → In Progress → Done
 - [x] Burndown chart produced and analysed
 - [x] Reflection questions answered
-- [ ] Jira screenshots captured into `Lab2_PS36/screenshots/`
+- [x] Jira screenshots captured into `Lab2_PS36/screenshots/`
 - [ ] Jira workspace demonstrated to the instructor
 
 ---
