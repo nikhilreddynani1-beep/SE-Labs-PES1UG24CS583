@@ -258,4 +258,4 @@ revised in later labs instead of redrawn.
 | Lab 1 | Requirements Engineering & UML Use-Case Modelling | ✅ Complete |
 | Lab 2 | Agile Backlog Creation & Sprint Simulation in Jira | ✅ Complete |
 | Lab 3 | Component Modelling & Architectural Pattern Selection | ✅ Complete |
-| Lab 4 | — | ⬜ Pending |
+| Lab 4 | — | ⬜ Pending | 
