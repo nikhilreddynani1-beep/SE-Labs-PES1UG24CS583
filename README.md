@@ -7,9 +7,9 @@ Coursework repository for the Software Engineering lab series.
 |---|---|
 | **Name** | Nikhil P |
 | **SRN** | PES1UG24CS583 |
-| **Section / Batch** | _______________________ |
-| **Semester** | _______________________ |
-| **Faculty** | _______________________ |
+| **Section** | J|
+| **Semester** | 5TH |
+| **Faculty** |Shridevi Sawant|
 
 ---
 
@@ -39,21 +39,25 @@ reference for all later design, testing and documentation artefacts.
 ```
 .
 ├── README.md                  ← you are here (repo overview)
-├── Lab1_PS36/                     ← Requirements Engineering & UML Use-Case Modelling
+├── Lab1_PS36/                 ← Requirements Engineering & UML Use-Case Modelling
 │   ├── Lab1_Requirements_Table.docx / .pdf
 │   ├── Lab1_UseCase_Diagram.pdf
 │   ├── Lab1_UseCase_Diagram.drawio
 │   ├── Lab1_UseCase_Flow.docx / .pdf
-│   └── README.md              ← lab-specific notes
-├── Lab2_PS36/                     ← Agile Backlog Creation & Sprint Simulation in Jira
+│   └── README.md
+├── Lab2_PS36/                 ← Agile Backlog Creation & Sprint Simulation in Jira
 │   ├── Lab2_Backlog_Epics_Stories.docx / .pdf
 │   ├── Lab2_Sprint_Plan_and_Reflection.docx / .pdf
 │   ├── Lab2_Burndown_Charts.pdf / .png
 │   ├── Lab2_Jira_Import.csv
-│   ├── screenshots/           ← Jira screenshots
+│   ├── screenshots/           ← Jira evidence
 │   └── README.md
-├── Lab3_PS36/                 ← (to be added)
-└── ...
+├── Lab3_PS36/                 ← Component Modelling & Architectural Pattern Selection
+│   ├── Lab3_Component_Diagram.pdf / .png
+│   ├── Lab3_Component_Diagram.drawio
+│   ├── Lab3_Architecture_Justification.docx / .pdf
+│   └── README.md
+└── Lab4_PS36/                 ← (to be added)
 ```
 
 Convention followed for every lab: one folder per lab, editable source (`.docx`, `.drawio`) committed
@@ -128,11 +132,11 @@ simulated sprints and analyse progress with a burndown chart. Scoped as instruct
 
 | File | What it contains |
 |---|---|
-| `Lab2_Backlog_Epics_Stories.docx` / `.pdf` | One Epic and six User Stories ("As a / I want / So that") with priority, Fibonacci story points and traceability back to FR/NFR and use cases |
-| `Lab2_Sprint_Plan_and_Reflection.docx` / `.pdf` | Sprint 1 & 2 goals and contents, velocity table, Planning Poker record, burndown analysis, four reflection answers |
+| `Lab2_Backlog_Epics_Stories.docx` / `.pdf` | One Epic and six User Stories ("As a / I want / So that") with priority, Fibonacci story points and traceability back to FR/NFR and use cases, plus the Jira evidence appendix |
+| `Lab2_Sprint_Plan_and_Reflection.docx` / `.pdf` | Sprint 1 & 2 contents, velocity table, Planning Poker record, burndown analysis, four reflection answers, Jira evidence appendix |
 | `Lab2_Burndown_Charts.pdf` / `.png` | Guideline vs remaining-values burndown for both sprints |
 | `Lab2_Jira_Import.csv` | Bulk-import file that creates the epic and its stories in Jira |
-| `screenshots/` | Jira evidence: backlog with the epic, story points, active sprint board, burndown |
+| `screenshots/` | Jira evidence: backlog with the epic, story points, active sprint board, both burndowns |
 
 ### The epic and how it maps back to Lab 1
 
@@ -155,7 +159,7 @@ FR-005 and covering UC-01, UC-02 and UC-08. Estimated on the Fibonacci scale (3,
 | Sprint 1 (1 week) | Diner can see the live floor plan and hold a table | 18 | 13 (Story 1.2 not completed) |
 | Sprint 2 (1 week) | Double booking impossible; diner can release a table | 11 | 11 |
 
-Working velocity ≈ **12 points per one-week sprint**; 10 points remain.
+Working velocity ≈ **12 points per one-week sprint**; 10 points remain (Stories 1.2 and 1.6).
 
 ### Submission checklist
 
@@ -171,26 +175,70 @@ Working velocity ≈ **12 points per one-week sprint**; 10 points remain.
 
 ---
 
-## 5. Tools used
+## 5. Lab 3 — Component Modelling & Architectural Pattern Selection
+
+**Objective:** evaluate architectural styles, select one for the scenario, and model the system as a
+UML component diagram with provided and required interfaces.
+
+**Architecture selected: Microservices.**
+
+### Deliverables
+
+| File | What it contains |
+|---|---|
+| `Lab3_Component_Diagram.pdf` / `.png` | 6 platform services, 2 client apps, 2 external systems, 2 data stores, 8 named interfaces in ball-and-socket notation, 4 «use» dependencies |
+| `Lab3_Architecture_Justification.docx` / `.pdf` | One page: style comparison, two scenario-specific reasons, security advantage, performance benefit |
+| `Lab3_Component_Diagram.drawio` | Editable diagram source |
+
+### Components
+
+| Component | Source | Responsibility |
+|---|---|---|
+| Order Manager Component | Given in handout | Orchestrates booking, pre-order and payment |
+| Payment Service Component | Given in handout | Gateway calls; stores tokens, never card data |
+| Table Availability Service | Identified | Live table state and sub-500 ms status push |
+| Kitchen Prep Scheduler | Identified | Cook-start times and KDS ticket dispatch |
+| Menu & Catalog Service | Identified | Menu, prices, per-item prep durations |
+| API Gateway | Identified | Entry point for diner app and manager terminal |
+
+### Interfaces
+
+IBookingAPI, IFloorOpsAPI, IReservation, IMenuCatalog, IPrepSchedule, **IPayment** (the given
+Order Manager ↔ Payment Service interface), ITableAvailability and IFloorStatusStream, plus «use»
+dependencies to the Payment Gateway, the Kitchen Display System and each service's data store.
+
+### Submission checklist
+
+- [x] At least 5 components modelled
+- [x] At least 4 interfaces with provided (ball) and required (socket) notation
+- [x] Data flow and protocols labelled on every connector
+- [x] Architectural style selected and justified with two scenario-specific reasons
+- [x] Security advantage and performance benefit argued
+- [x] Diagram exported as PDF and PNG; justification exported as PDF
+- [ ] Name / SRN filled into the justification document
+
+---
+
+## 6. Tools used
 
 | Purpose | Tool |
 |---|---|
-| UML use-case diagram | draw.io (diagrams.net) |
+| UML use-case and component diagrams | draw.io (diagrams.net) |
 | Agile backlog, sprints, burndown | Jira (Company-managed Scrum) |
 | Requirements table & flow document | Microsoft Word / LibreOffice Writer |
 | Export & submission | PDF export, Git + GitHub |
 
 ---
 
-## 6. Working with this repository
+## 7. Working with this repository
 
 ```bash
 git clone <your-repo-url>
 cd <repo>
 
 # after adding or updating a lab
-git add Lab2_PS36
-git commit -m "Lab 2: agile backlog, two sprints and burndown analysis"
+git add Lab3_PS36
+git commit -m "Lab 3: component diagram and architecture justification"
 git push origin main
 ```
 
@@ -199,10 +247,11 @@ revised in later labs instead of redrawn.
 
 ---
 
-## 7. Roadmap
+## 8. Roadmap
 
 | Lab | Topic | Status |
 |---|---|---|
 | Lab 1 | Requirements Engineering & UML Use-Case Modelling | ✅ Complete |
 | Lab 2 | Agile Backlog Creation & Sprint Simulation in Jira | ✅ Complete |
-| Lab 3 | — | ⬜ Pending |
+| Lab 3 | Component Modelling & Architectural Pattern Selection | ✅ Complete |
+| Lab 4 | — | ⬜ Pending |
