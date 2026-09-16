@@ -7,10 +7,14 @@ Coursework repository for the Software Engineering lab series.
 |---|---|
 | **Name** | Nikhil P |
 | **SRN** | PES1UG24CS583 |
+<<<<<<< HEAD
 | **Section** | J|
 | **Semester** | 5TH |
 | **Faculty** |Shridevi Sawant|
 
+=======
+| **Section / Batch** | J |
+>>>>>>> 5f4922c8e4b79598ffc6e0b592d59f63d894f0ef
 ---
 
 ## 1. The system being modelled
