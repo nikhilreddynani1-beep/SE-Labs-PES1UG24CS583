@@ -5,7 +5,7 @@ Coursework repository for the Software Engineering lab series.
 
 | | |
 |---|---|
-| **Name** | Nikhil P |
+| **Name** | Nikhil p |
 | **SRN** | PES1UG24CS583 |
 <<<<<<< HEAD
 | **Section** | J|
