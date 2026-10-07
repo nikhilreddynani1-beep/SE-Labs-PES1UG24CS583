@@ -46,9 +46,19 @@ def ghost_color(name, mode):
     return None
 
 
+# Bonus fruit: a cherry appears below the ghost house when the pellet count crosses
+# each trigger value, stays for FRUIT_SECONDS, and is worth FRUIT_POINTS.
+FRUIT_CELL = (7, 10)
+FRUIT_TRIGGERS = (100, 50)
+FRUIT_POINTS, FRUIT_SECONDS = 100, 9.0
+fruit_requests = []  # filled by on_pellet_eaten, consumed by Game.update
+
+
 def on_pellet_eaten(score, pellets_left):
     """Called after every pellet is eaten; add sound, flashes, or bonus fruit here."""
-    pass
+    # pellets_left drops by exactly one per call, so equality fires once per trigger per game
+    if pellets_left in FRUIT_TRIGGERS:
+        fruit_requests.append(pellets_left)
 
 
 def bonus_life_threshold():
@@ -141,6 +151,9 @@ class Game:
         self.player, self.direction, self.desired = list(PLAYER_START), (0, 1), (0, 1)
         self.score, self.lives, self.state = 0, 3, "play"
         self.bonus_awarded = 0
+        self.fruit_left = 0.0
+        self.banner, self.banner_left = "", 0.0
+        fruit_requests.clear()
         self.clock_time = self.fright_left = self.player_acc = self.ghost_acc = 0.0
         for ghost in self.ghosts:
             ghost.reset()
@@ -162,7 +175,17 @@ class Game:
                 self.direction = d
                 self.player[:] = cell
                 self.eat(tuple(cell))
+                self.eat_fruit(tuple(cell))
                 return
+
+    def eat_fruit(self, cell):
+        if self.fruit_left > 0 and cell == FRUIT_CELL:
+            self.fruit_left = 0.0
+            self.score += FRUIT_POINTS
+            self.show_banner(f"CHERRY +{FRUIT_POINTS}")
+
+    def show_banner(self, text, seconds=1.5):
+        self.banner, self.banner_left = text, seconds
 
     def eat(self, cell):
         if cell not in self.pellets:
@@ -198,6 +221,11 @@ class Game:
             return
         self.clock_time += dt
         self.fright_left = max(0.0, self.fright_left - dt)
+        self.banner_left = max(0.0, self.banner_left - dt)
+        if fruit_requests:
+            fruit_requests.clear()
+            self.fruit_left = FRUIT_SECONDS
+        self.fruit_left = max(0.0, self.fruit_left - dt)
         threshold = bonus_life_threshold()
         if threshold and self.score // threshold > self.bonus_awarded:
             self.bonus_awarded = self.score // threshold
@@ -230,6 +258,12 @@ class Game:
                     pygame.draw.rect(screen, (20, 80, 180), rect.inflate(-4, -4), border_radius=6)
                 elif (r, c) in self.pellets:
                     pygame.draw.circle(screen, (255, 220, 120), rect.center, 3 if value == "." else 7)
+        if self.fruit_left > 0:
+            fx, fy = FRUIT_CELL[1] * TILE + TILE // 2, FRUIT_CELL[0] * TILE + TILE // 2
+            pygame.draw.line(screen, (60, 200, 60), (fx - 4, fy + 2), (fx + 2, fy - 9), 2)
+            pygame.draw.line(screen, (60, 200, 60), (fx + 5, fy + 3), (fx + 2, fy - 9), 2)
+            pygame.draw.circle(screen, (230, 20, 40), (fx - 5, fy + 4), 5)
+            pygame.draw.circle(screen, (230, 20, 40), (fx + 5, fy + 5), 5)
         px, py = self.player[1] * TILE + TILE // 2, self.player[0] * TILE + TILE // 2
         pygame.draw.circle(screen, (255, 220, 20), (px, py), TILE // 2 - 2)
         mouth = pygame.Vector2(self.direction[1], self.direction[0]) * (TILE // 2)
@@ -254,6 +288,9 @@ class Game:
                 pygame.draw.circle(screen, (255, 255, 255), (gx + 4, gy - 4), 3)
         hud = font.render(f"Score {self.score}   Lives {self.lives}   R = reset", True, (240, 240, 240))
         screen.blit(hud, (8, ROWS * TILE + 6))
+        if self.banner_left > 0:
+            tag = font.render(self.banner, True, (255, 120, 120))
+            screen.blit(tag, (W - tag.get_width() - 8, ROWS * TILE + 6))
         if self.state != "play":
             text = "YOU WIN! Press R" if self.state == "win" else "GAME OVER - Press R"
             label = font.render(text, True, (255, 255, 120))
