@@ -61,9 +61,14 @@ def on_pellet_eaten(score, pellets_left):
         fruit_requests.append(pellets_left)
 
 
+# The board has 126 pellets + 4 power pellets (~1,460 points before ghosts and fruit),
+# so a 10,000 threshold could never be reached. 1,000 makes the extra life earnable.
+BONUS_LIFE_SCORE = 1000
+
+
 def bonus_life_threshold():
     """Return a score value at which the player earns an extra life, or None to disable bonus lives."""
-    pass
+    return BONUS_LIFE_SCORE
 
 
 def is_wall(cell):
@@ -230,6 +235,7 @@ class Game:
         if threshold and self.score // threshold > self.bonus_awarded:
             self.bonus_awarded = self.score // threshold
             self.lives += 1
+            self.show_banner("EXTRA LIFE!", 2.0)
         self.player_acc += dt
         while self.player_acc >= PLAYER_STEP:
             self.player_acc -= PLAYER_STEP
