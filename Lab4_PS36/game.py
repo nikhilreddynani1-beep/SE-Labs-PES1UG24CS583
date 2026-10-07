@@ -29,9 +29,21 @@ FRIGHT_SECONDS = 3.0
 PLAYER_STEP, GHOST_STEP = 0.14, 0.17
 
 
+# Each ghost gets its own frightened-mode tint instead of the shared blue/white flash,
+# so you can still tell who is who while hunting them.
+FRIGHT_TINTS = {
+    "blinky": (150, 40, 210),   # violet
+    "pinky": (60, 110, 255),    # bright blue
+    "inky": (20, 160, 150),     # teal
+    "clyde": (110, 80, 190),    # indigo
+}
+
+
 def ghost_color(name, mode):
     """Return an (r, g, b) colour override for a ghost, or None to keep the default."""
-    pass
+    if mode == "frightened":
+        return FRIGHT_TINTS.get(name)
+    return None
 
 
 def on_pellet_eaten(score, pellets_left):
