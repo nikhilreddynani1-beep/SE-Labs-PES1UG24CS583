@@ -1,3 +1,10 @@
+"""Online Examination System.
+
+A small exam marker: picks a bonus question, grades each student's
+answers against the answer key, converts scores into letter grades and
+reports the class average and the topper.
+"""
+
 import os
 import random
 import re
@@ -19,15 +26,22 @@ HOSTNAME_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9.-]{0,252}")
 
 
 def normalise_answer(text):
+    """Return an answer in a form that ignores case and outer spaces."""
     return text.strip().lower()
 
 
 def pick_bonus_question():
+    """Return the text of a randomly chosen bonus question."""
     # Not security-related: just picks which question to show.
     return random.choice(QUESTIONS)["q"]  # nosec B311
 
 
 def grade_student(student_name, responses, results, penalties=None):
+    """Grade one student's responses, store the score and return it.
+
+    ``responses`` maps question index to the student's answer.
+    ``penalties`` (optional) collects one point per wrong/missing answer.
+    """
     if penalties is None:
         penalties = {}
     score = 0
@@ -42,6 +56,7 @@ def grade_student(student_name, responses, results, penalties=None):
 
 
 def get_grade(score):
+    """Convert a raw score into a letter grade (A, B or C)."""
     percent = score * 100 / len(QUESTIONS)
     if percent >= 90:
         return "A"
@@ -52,18 +67,24 @@ def get_grade(score):
 
 
 def class_average(results):
+    """Return the mean score rounded to 2 places (0 if nobody sat)."""
     if not results:
         return 0
     return round(sum(results.values()) / len(results), 2)
 
 
 def topper(results):
+    """Return the name of the highest scorer, or None if nobody sat."""
     if not results:
         return None
     return max(results, key=results.get)
 
 def lock_screen(lab_pc):
-    # Helper kept for the lab: not called by the demo
+    """Lock a lab PC's screen over SSH (kept for the lab, not used by main).
+
+    The host name is validated and passed as a separate argument, so it
+    can never be interpreted by a shell.
+    """
     if not HOSTNAME_PATTERN.fullmatch(lab_pc):
         raise ValueError(f"Invalid lab PC name: {lab_pc!r}")
     ssh_path = shutil.which("ssh")
@@ -75,6 +96,7 @@ def lock_screen(lab_pc):
 
 
 def main():
+    """Run the demonstration exam and print the report."""
     results = {}
     print("Bonus question:", pick_bonus_question())
     grade_student("Anil", {0: "4", 1: "def", 2: "Core Power Unit"}, results)
