@@ -23,7 +23,8 @@ def hashAnswer(text):
 
 
 def pickBonusQuestion():
-    return random.choice(QUESTIONS)["q"]
+    # Not security-related: just picks which question to show.
+    return random.choice(QUESTIONS)["q"]  # nosec B311
 
 
 def gradeStudent(studentName, responses, results, penalties=None):
