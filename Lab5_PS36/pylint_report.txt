@@ -1,0 +1,25 @@
+************* Module online_exam
+online_exam.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+online_exam.py:15:0: C0116: Missing function or method docstring (missing-function-docstring)
+online_exam.py:15:0: C0103: Function name "hashAnswer" doesn't conform to snake_case naming style (invalid-name)
+online_exam.py:19:0: C0116: Missing function or method docstring (missing-function-docstring)
+online_exam.py:19:0: C0103: Function name "pickBonusQuestion" doesn't conform to snake_case naming style (invalid-name)
+online_exam.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)
+online_exam.py:23:0: C0103: Function name "gradeStudent" doesn't conform to snake_case naming style (invalid-name)
+online_exam.py:23:17: C0103: Argument name "studentName" doesn't conform to snake_case naming style (invalid-name)
+online_exam.py:23:0: W0102: Dangerous default value {} as argument (dangerous-default-value)
+online_exam.py:25:4: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+online_exam.py:35:0: C0116: Missing function or method docstring (missing-function-docstring)
+online_exam.py:35:0: C0103: Function name "getGrade" doesn't conform to snake_case naming style (invalid-name)
+online_exam.py:37:4: R1705: Unnecessary "elif" after "return", replace only that "elif" with "if" (no-else-return)
+online_exam.py:45:0: C0116: Missing function or method docstring (missing-function-docstring)
+online_exam.py:45:0: C0103: Function name "classAverage" doesn't conform to snake_case naming style (invalid-name)
+online_exam.py:51:0: C0116: Missing function or method docstring (missing-function-docstring)
+online_exam.py:54:0: C0116: Missing function or method docstring (missing-function-docstring)
+online_exam.py:54:0: C0103: Function name "lockScreen" doesn't conform to snake_case naming style (invalid-name)
+online_exam.py:54:15: C0103: Argument name "labPc" doesn't conform to snake_case naming style (invalid-name)
+online_exam.py:59:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+-----------------------------------
+Your code has been rated at 5.65/10
+
