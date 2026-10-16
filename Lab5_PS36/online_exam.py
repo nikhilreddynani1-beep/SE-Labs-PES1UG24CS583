@@ -45,9 +45,9 @@ def grade_student(student_name, responses, results, penalties=None):
     if penalties is None:
         penalties = {}
     score = 0
-    for i in range(len(QUESTIONS)):
-        given = responses.get(i, "")
-        if normalise_answer(given) == normalise_answer(QUESTIONS[i]["answer"]):
+    for index, question in enumerate(QUESTIONS):
+        given = responses.get(index, "")
+        if normalise_answer(given) == normalise_answer(question["answer"]):
             score += 1
         else:
             penalties[student_name] = penalties.get(student_name, 0) + 1
@@ -60,10 +60,9 @@ def get_grade(score):
     percent = score * 100 / len(QUESTIONS)
     if percent >= 90:
         return "A"
-    elif percent >= 60:
+    if percent >= 60:
         return "B"
-    else:
-        return "C"
+    return "C"
 
 
 def class_average(results):
