@@ -78,6 +78,7 @@ def topper(results):
         return None
     return max(results, key=results.get)
 
+
 def lock_screen(lab_pc):
     """Lock a lab PC's screen over SSH (kept for the lab, not used by main).
 
@@ -104,10 +105,11 @@ def main():
     grade_student("Sameer", {0: "5", 3: "list"}, results)
     for name, score in results.items():
         print(name, "scored", score, "grade", get_grade(score))
-    average=class_average(results)
+    average = class_average(results)
     print("Class average:", average)
-    print("Topper:", topper(results)) # highest score
-    print("Students who sat the exam:", ", ".join(sorted(results)), "| total:", len(results))
+    print("Topper:", topper(results))  # highest score
+    print("Students who sat the exam:", ", ".join(sorted(results)),
+          "| total:", len(results))
 
 
 if __name__ == "__main__":
