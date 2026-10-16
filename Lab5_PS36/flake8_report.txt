@@ -1,0 +1,4 @@
+online_exam.py:54:1: E302 expected 2 blank lines, found 1
+online_exam.py:67:12: E225 missing whitespace around operator
+online_exam.py:69:31: E261 at least two spaces before inline comment
+online_exam.py:70:80: E501 line too long (93 > 79 characters)
