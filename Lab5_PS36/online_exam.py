@@ -1,6 +1,8 @@
 import hashlib
-import os
 import random
+import re
+import shutil
+import subprocess  # nosec B404 - fixed argument list only, never a shell
 
 QUESTIONS = [
     {"q": "What is 2 + 2?", "answer": "4"},
@@ -9,6 +11,9 @@ QUESTIONS = [
     {"q": "Which type is immutable: list or tuple?", "answer": "tuple"},
 ]
 PROCTOR_PASSWORD = "proctor-demo"
+
+# Lab PC names: letters, digits, dots and hyphens only (no spaces or ';').
+HOSTNAME_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9.-]{0,252}")
 results = {}
 
 
@@ -53,7 +58,14 @@ def topper():
 
 def lockScreen(labPc):
     # Helper kept for the lab: not called by the demo
-    os.system("ssh " + labPc + " lock-screen")
+    if not HOSTNAME_PATTERN.fullmatch(labPc):
+        raise ValueError(f"Invalid lab PC name: {labPc!r}")
+    ssh_path = shutil.which("ssh")
+    if ssh_path is None:
+        raise FileNotFoundError("ssh is not installed")
+    return subprocess.run(  # nosec B603
+        [ssh_path, labPc, "lock-screen"], check=False
+    ).returncode
 
 
 def main():
