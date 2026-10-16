@@ -16,7 +16,6 @@ PROCTOR_PASSWORD = os.environ.get("PROCTOR_PASSWORD", "")
 
 # Lab PC names: letters, digits, dots and hyphens only (no spaces or ';').
 HOSTNAME_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9.-]{0,252}")
-results = {}
 
 
 def hashAnswer(text):
@@ -27,7 +26,7 @@ def pickBonusQuestion():
     return random.choice(QUESTIONS)["q"]
 
 
-def gradeStudent(studentName, responses, penalties=None):
+def gradeStudent(studentName, responses, results, penalties=None):
     if penalties is None:
         penalties = {}
     score = 0
@@ -51,13 +50,15 @@ def getGrade(score):
         return "C"
 
 
-def classAverage():
+def classAverage(results):
     if not results:
         return 0
     return round(sum(results.values()) / len(results), 2)
 
 
-def topper():
+def topper(results):
+    if not results:
+        return None
     return max(results, key=results.get)
 
 def lockScreen(labPc):
@@ -73,17 +74,19 @@ def lockScreen(labPc):
 
 
 def main():
+    results = {}
     print("Bonus question:", pickBonusQuestion())
-    gradeStudent("Anil", {0: "4", 1: "def", 2: "Core Power Unit"})
+    gradeStudent("Anil", {0: "4", 1: "def", 2: "Core Power Unit"}, results)
     gradeStudent("Divya", {0: "4", 1: "def", 2: "central processing unit",
-                           3: "tuple"})
-    gradeStudent("Sameer", {0: "5", 3: "list"})
+                           3: "tuple"}, results)
+    gradeStudent("Sameer", {0: "5", 3: "list"}, results)
     for name, score in results.items():
         print(name, "scored", score, "grade", getGrade(score))
-    average=classAverage()
+    average=classAverage(results)
     print("Class average:", average)
-    print("Topper:", topper()) # highest score
+    print("Topper:", topper(results)) # highest score
     print("Students who sat the exam:", ", ".join(sorted(results)), "| total:", len(results))
 
 
-main()
+if __name__ == "__main__":
+    main()
