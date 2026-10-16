@@ -1,3 +1,4 @@
+import os
 import random
 import re
 import shutil
@@ -9,7 +10,9 @@ QUESTIONS = [
     {"q": "What does CPU stand for?", "answer": "Central Processing Unit"},
     {"q": "Which type is immutable: list or tuple?", "answer": "tuple"},
 ]
-PROCTOR_PASSWORD = "proctor-demo"
+
+# Secret comes from the environment instead of being written in the code.
+PROCTOR_PASSWORD = os.environ.get("PROCTOR_PASSWORD", "")
 
 # Lab PC names: letters, digits, dots and hyphens only (no spaces or ';').
 HOSTNAME_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9.-]{0,252}")
