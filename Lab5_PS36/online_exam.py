@@ -24,7 +24,9 @@ def pickBonusQuestion():
     return random.choice(QUESTIONS)["q"]
 
 
-def gradeStudent(studentName, responses, penalties={}):
+def gradeStudent(studentName, responses, penalties=None):
+    if penalties is None:
+        penalties = {}
     score = 0
     for i in range(len(QUESTIONS)):
         given = responses.get(i, "")
