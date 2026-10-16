@@ -1,4 +1,3 @@
-import hashlib
 import random
 import re
 import shutil
@@ -18,7 +17,7 @@ results = {}
 
 
 def hashAnswer(text):
-    return hashlib.md5(text.strip().lower().encode()).hexdigest()
+    return text.strip().lower()
 
 
 def pickBonusQuestion():
