@@ -4,6 +4,7 @@
 |---|---|
 | **Student** | Nikhil Reddy · SRN PES1UG24CS583 |
 | **GitHub** | [github.com/nikhilreddynani1-beep](https://github.com/nikhilreddynani1-beep) |
+| **My repo (fork of the assigned repo)** | [github.com/nikhilreddynani1-beep/L6_L7_34_tennis_scoring](https://github.com/nikhilreddynani1-beep/L6_L7_34_tennis_scoring) |
 | **Assigned repo** | [github.com/SETAPESU26/L6_L7_34_tennis_scoring](https://github.com/SETAPESU26/L6_L7_34_tennis_scoring) |
 | **Submission folder** | [SE-Labs-PES1UG24CS583/Lab6_PS36](https://github.com/nikhilreddynani1-beep/SE-Labs-PES1UG24CS583/tree/main/Lab6_PS36) |
 | **Tools** | Python 3 · pytest 9.2.0 · coverage 7.17.0 |
@@ -50,6 +51,8 @@ See [`coverage_analysis.md`](coverage_analysis.md) for the line-by-line explanat
 ## How to run
 
 ```powershell
+git clone https://github.com/nikhilreddynani1-beep/L6_L7_34_tennis_scoring.git
+cd L6_L7_34_tennis_scoring/lab6
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install pytest coverage
