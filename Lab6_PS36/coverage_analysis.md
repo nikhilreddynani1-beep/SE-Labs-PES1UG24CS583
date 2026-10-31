@@ -10,7 +10,12 @@ Tools: pytest 9.2.0, coverage.py 7.17.0. Figures are for `tennis_scoring.py` (38
 | Code coverage | `CodeCoverageTest_PES1UG24CS583_tennis_scoring.py` | 17 | **95%** | 94% | lines 16, 32 (2 partial branches) |
 | Branch coverage | `BranchCoverageTest_PES1UG24CS583_tennis_scoring.py` | 57 | **100%** | **100%** | none |
 
-Screenshots: [`screenshot_code_coverage.png`](screenshot_code_coverage.png), [`screenshot_branch_coverage.png`](screenshot_branch_coverage.png).
+Screenshots:
+
+| | Before (starter tests) | After |
+|---|---|---|
+| Code (line) coverage | [`screenshot_code_coverage_before.png`](screenshot_code_coverage_before.png) (37%) | [`screenshot_code_coverage_after.png`](screenshot_code_coverage_after.png) (95%) |
+| Branch coverage | [`screenshot_branch_coverage_before.png`](screenshot_branch_coverage_before.png) (32%) | [`screenshot_branch_coverage_after.png`](screenshot_branch_coverage_after.png) (100%) |
 
 ## Step 1: starter tests (37% line, 32% branch)
 
@@ -62,6 +67,11 @@ That is above the 90% target. Measured with `--branch`, the same tests give 94%:
 ## Commands
 
 ```
+coverage run -m pytest test_tennis_scoring.py
+coverage report -m
+coverage run --branch -m pytest test_tennis_scoring.py
+coverage report -m
+
 coverage run -m pytest CodeCoverageTest_PES1UG24CS583_tennis_scoring.py
 coverage report -m
 

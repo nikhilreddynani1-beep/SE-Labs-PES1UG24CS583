@@ -24,8 +24,10 @@ Both targets (at least 90% line coverage, and at least 90% branch coverage) are 
 |-------------|------|
 | Test cases for code (line) coverage | [`CodeCoverageTest_PES1UG24CS583_tennis_scoring.py`](CodeCoverageTest_PES1UG24CS583_tennis_scoring.py) |
 | Test cases for branch coverage | [`BranchCoverageTest_PES1UG24CS583_tennis_scoring.py`](BranchCoverageTest_PES1UG24CS583_tennis_scoring.py) |
-| Code coverage terminal output | [`screenshot_code_coverage.png`](screenshot_code_coverage.png) |
-| Branch coverage terminal output | [`screenshot_branch_coverage.png`](screenshot_branch_coverage.png) |
+| Code coverage terminal output: **before** (starter tests, 37%) | [`screenshot_code_coverage_before.png`](screenshot_code_coverage_before.png) |
+| Code coverage terminal output: **after** (`CodeCoverageTest_…`, 95%) | [`screenshot_code_coverage_after.png`](screenshot_code_coverage_after.png) |
+| Branch coverage terminal output: **before** (starter tests, 32%) | [`screenshot_branch_coverage_before.png`](screenshot_branch_coverage_before.png) |
+| Branch coverage terminal output: **after** (`BranchCoverageTest_…`, 100%) | [`screenshot_branch_coverage_after.png`](screenshot_branch_coverage_after.png) |
 | Coverage analysis | [`coverage_analysis.md`](coverage_analysis.md) |
 | Application under test (unchanged) | [`tennis_scoring.py`](tennis_scoring.py) |
 | Starter tests (unchanged) | [`test_tennis_scoring.py`](test_tennis_scoring.py) |
@@ -36,6 +38,7 @@ Both targets (at least 90% line coverage, and at least 90% branch coverage) are 
 2. **Code coverage:** add `CodeCoverageTest_…` and its screenshot (95% line coverage).
 3. **Branch coverage:** add `BranchCoverageTest_…` and its screenshot (100% branch coverage).
 4. Add the coverage analysis and this README.
+5. Add the "before" screenshots (starter tests) and rename the earlier screenshots to "after".
 
 ## What the tests cover
 
@@ -50,6 +53,12 @@ See [`coverage_analysis.md`](coverage_analysis.md) for the line-by-line explanat
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install pytest coverage
+
+# before: starter tests
+coverage run -m pytest test_tennis_scoring.py
+coverage report -m
+coverage run --branch -m pytest test_tennis_scoring.py
+coverage report -m
 
 # code (line) coverage
 coverage run -m pytest CodeCoverageTest_PES1UG24CS583_tennis_scoring.py
