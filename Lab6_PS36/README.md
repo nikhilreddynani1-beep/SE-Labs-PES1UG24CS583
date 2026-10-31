@@ -25,10 +25,10 @@ Both targets (at least 90% line coverage, and at least 90% branch coverage) are 
 |-------------|------|
 | Test cases for code (line) coverage | [`CodeCoverageTest_PES1UG24CS583_tennis_scoring.py`](CodeCoverageTest_PES1UG24CS583_tennis_scoring.py) |
 | Test cases for branch coverage | [`BranchCoverageTest_PES1UG24CS583_tennis_scoring.py`](BranchCoverageTest_PES1UG24CS583_tennis_scoring.py) |
-| Code coverage terminal output: **before** (starter tests, 37%) | [`screenshot_code_coverage_before.png`](screenshot_code_coverage_before.png) |
-| Code coverage terminal output: **after** (`CodeCoverageTest_…`, 95%) | [`screenshot_code_coverage_after.png`](screenshot_code_coverage_after.png) |
-| Branch coverage terminal output: **before** (starter tests, 32%) | [`screenshot_branch_coverage_before.png`](screenshot_branch_coverage_before.png) |
-| Branch coverage terminal output: **after** (`BranchCoverageTest_…`, 100%) | [`screenshot_branch_coverage_after.png`](screenshot_branch_coverage_after.png) |
+| Code coverage terminal output: **before** (starter tests, 37%) | [`deliverables/screenshot_code_coverage_before.png`](deliverables/screenshot_code_coverage_before.png) |
+| Code coverage terminal output: **after** (`CodeCoverageTest_…`, 95%) | [`deliverables/screenshot_code_coverage_after.png`](deliverables/screenshot_code_coverage_after.png) |
+| Branch coverage terminal output: **before** (starter tests, 32%) | [`deliverables/screenshot_branch_coverage_before.png`](deliverables/screenshot_branch_coverage_before.png) |
+| Branch coverage terminal output: **after** (`BranchCoverageTest_…`, 100%) | [`deliverables/screenshot_branch_coverage_after.png`](deliverables/screenshot_branch_coverage_after.png) |
 | Coverage analysis | [`coverage_analysis.md`](coverage_analysis.md) |
 | Application under test (unchanged) | [`tennis_scoring.py`](tennis_scoring.py) |
 | Starter tests (unchanged) | [`test_tennis_scoring.py`](test_tennis_scoring.py) |

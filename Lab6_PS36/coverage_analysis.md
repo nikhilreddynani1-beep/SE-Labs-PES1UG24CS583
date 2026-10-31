@@ -14,8 +14,8 @@ Screenshots:
 
 | | Before (starter tests) | After |
 |---|---|---|
-| Code (line) coverage | [`screenshot_code_coverage_before.png`](screenshot_code_coverage_before.png) (37%) | [`screenshot_code_coverage_after.png`](screenshot_code_coverage_after.png) (95%) |
-| Branch coverage | [`screenshot_branch_coverage_before.png`](screenshot_branch_coverage_before.png) (32%) | [`screenshot_branch_coverage_after.png`](screenshot_branch_coverage_after.png) (100%) |
+| Code (line) coverage | [`deliverables/screenshot_code_coverage_before.png`](deliverables/screenshot_code_coverage_before.png) (37%) | [`deliverables/screenshot_code_coverage_after.png`](deliverables/screenshot_code_coverage_after.png) (95%) |
+| Branch coverage | [`deliverables/screenshot_branch_coverage_before.png`](deliverables/screenshot_branch_coverage_before.png) (32%) | [`deliverables/screenshot_branch_coverage_after.png`](deliverables/screenshot_branch_coverage_after.png) (100%) |
 
 ## Step 1: starter tests (37% line, 32% branch)
 
